@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkp6qv6lwlbc6"]
+
+[ext_resource type="Script" path="res://Source/Player.gd" id="1_jtnvt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xldy"]
+size = Vector2(32, 48)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_jtnvt")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-16, -48)
+polygon = PackedVector2Array(0, 0, 32, 0, 32, 48, 0, 48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_4xldy")
+
+[node name="RayR" type="RayCast2D" parent="."]
+position = Vector2(0, -24)
+target_position = Vector2(18, 0)
+
+[node name="RayL" type="RayCast2D" parent="."]
+position = Vector2(0, -24)
+target_position = Vector2(-18, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
